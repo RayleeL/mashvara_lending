@@ -1,0 +1,118 @@
+/* css/style.css */
+
+/* 1. Глобальные настройки */
+html {
+    scroll-behavior: smooth; /* Плавная прокрутка к якорям */
+}
+
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов (для Mac/iOS) */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Кастомный скроллбар (делает его аккуратным) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* Светло-серый ползунок */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* Темнее при наведении */
+}
+
+/* 3. Анимация "Парение" (для телефонов в Hero-секции) */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* 4. Анимация плавного появления снизу (для карточек) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* 5. Градиентный текст (для заголовков) */
+.text-gradient-primary {
+    background: linear-gradient(135deg, #111827 0%, #4B5563 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 6. Эффект "Стекла" для плашек или меню (более сложный блюр) */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 7. Декоративный "blob" (цветное пятно на фоне) */
+.bg-blob {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #2563EB 0%, #93C5FD 100%);
+    animation: pulse-glow 8s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.5; transform: scale(1.1); }
+}
+
+/* Эффект мерцания для рамки в футере */
+#download .relative.border-2 {
+    transition: border-color 0.5s ease;
+}
+
+#download .relative.border-2:hover {
+    border-color: rgba(96, 165, 250, 0.6); /* Ярче при наведении */
+}
+
+/* Улучшенная анимация парения для футера */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+.floating-animation {
+    animation: float 5s ease-in-out infinite;
+    will-change: transform;
+}
+
+html {
+    scroll-behavior: smooth;
+}
