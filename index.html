@@ -33,7 +33,7 @@
                     },
                     colors: {
                         dark: '#111827',
-                        primary: '#2563EB', // Синий акцент
+                        primary: '#2563EB', 
                         light: '#F3F4F6',
                     },
                     boxShadow: {
@@ -44,9 +44,9 @@
         }
     </script>
     <style>
-        /* Плавная прокрутка */
+       
         html { scroll-behavior: smooth; }
-        /* Градиентный текст */
+        
         .text-gradient {
             background: linear-gradient(to right, #111827, #4B5563);
             -webkit-background-clip: text;
@@ -58,22 +58,25 @@
 
     <nav class="fixed w-full glass-panel z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center py-4"> <a href="/" class="flex items-center group">
+            <div class="flex justify-between items-center h-20 md:h-24">
+                <div class="flex items-center"> 
+                    <a href="#" class="flex items-center group">
                         <img src="img/mashvara_logo (2).png" 
                             alt="Mashvara Logo" 
-                            class="h-20 md:h-24 w-auto -my-4 object-contain transition-transform duration-300 group-hover:scale-105">
+                            class="h-32 md:h-40 w-auto -ml-4 object-contain transition-transform duration-300 group-hover:scale-105">
                     </a>
                 </div>
+
                 <div class="hidden md:flex space-x-12 text-sm font-medium text-gray-600">
                     <a href="#features" class="hover:text-black transition">Возможности</a>
                     <a href="#how-it-works" class="hover:text-black transition">Как это работает</a>
-                    <a href="#use-cases" class="text-sm font-medium text-gray-600 hover:text-black transition">Бизнесу</a>
+                    <a href="#use-cases" class="hover:text-black transition">Бизнесу</a>
                     <a href="#testimonials" class="hover:text-black transition">Отзывы</a>
                     <a href="#contact" class="hover:text-black transition">Связаться</a>
                 </div>
-                <div class="flex items-center space-x-4"> 
-                    <a href="#download" class="bg-[#0a0f1a] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition">
+
+                <div class="flex items-center"> 
+                    <a href="#download" class="bg-[#0a0f1a] text-white px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg">
                         Скачать приложение
                     </a>
                 </div>
@@ -389,10 +392,6 @@
         </div>
     </div>
 </footer>
-
-    <!-- <div class="bg-black py-6 border-t border-gray-800 text-center">
-        <p class="text-gray-500 text-xs">© 2026 Mashvara. Все права защищены.</p>
-    </div> -->
 
 </body>
 </html>
