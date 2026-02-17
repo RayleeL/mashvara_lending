@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon" href="img/favicon.png">
@@ -14,266 +14,347 @@
     <meta name="description" content="Создавайте опросы, анализируйте аудиторию и принимайте решения на основе данных с Mashvara.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mashvara.com/"> <meta property="og:title" content="Mashvara — Инсайты в один клик">
+    <meta property="og:url" content="https://mashvara.com/">
+    <meta property="og:title" content="Mashvara — Инсайты в один клик">
     <meta property="og:description" content="Умная платформа для сбора отзывов и анализа рынка.">
-    <meta property="og:image" content="img/og-image.png"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="img/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Mashvara">
     <meta property="twitter:description" content="Платформа для таргетированных опросов.">
     <meta property="twitter:image" content="img/og-image.png">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        dark: '#111827',
-                        primary: '#2563EB', 
-                        light: '#F3F4F6',
+                        brand: {
+                            50:  '#E6F7F9',
+                            100: '#B3E8EE',
+                            200: '#80D9E3',
+                            300: '#4DCAD8',
+                            400: '#1ABCCD',
+                            500: '#0E9AAB',
+                            600: '#0B7F8D',
+                            700: '#09636F',
+                            800: '#064851',
+                            900: '#032D33',
+                        },
+                        accent: {
+                            50:  '#FEF0EF',
+                            100: '#FBD1CE',
+                            200: '#F5A39D',
+                            300: '#EF756C',
+                            400: '#E8453C',
+                            500: '#D63028',
+                            600: '#B1271F',
+                            700: '#8C1E18',
+                            800: '#671510',
+                            900: '#420D08',
+                        },
+                        navy: {
+                            50:  '#E8EDF3',
+                            100: '#C5D0DE',
+                            200: '#8BA1BD',
+                            300: '#51729C',
+                            400: '#1E3A5F',
+                            500: '#0C1B2A',
+                            600: '#0A1724',
+                            700: '#08121D',
+                            800: '#060E17',
+                            900: '#040A10',
+                        },
                     },
                     boxShadow: {
-                        'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.08)',
-                    }
+                        'soft': '0 4px 24px -4px rgba(14, 154, 171, 0.10)',
+                        'card': '0 1px 3px rgba(12, 27, 42, 0.06), 0 8px 32px -8px rgba(12, 27, 42, 0.08)',
+                        'card-hover': '0 1px 3px rgba(14, 154, 171, 0.08), 0 16px 48px -12px rgba(14, 154, 171, 0.14)',
+                        'elevated': '0 20px 60px -15px rgba(12, 27, 42, 0.15)',
+                    },
                 }
             }
         }
     </script>
-    <style>
-       
-        html { scroll-behavior: smooth; }
-        
-        .text-gradient {
-            background: linear-gradient(to right, #111827, #4B5563);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
 
-    <nav class="fixed w-full glass-panel z-50">
+<body id="top" class="bg-white text-navy-500 font-sans antialiased">
+
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <nav class="fixed w-full glass-nav z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 md:h-24">
-                <div class="flex items-center"> 
-                    <a href="#" class="flex items-center group">
-                        <img src="./img/mashvara_colored_logo.png" 
-                            alt="Mashvara Logo" 
-                            class="h-32 md:h-40 w-auto -ml-4 object-contain transition-transform duration-300 group-hover:scale-105">
-                    </a>
+            <div class="flex justify-between items-center h-20">
+                <a href="#top" class="flex items-center group" aria-label="На главную">
+                    <img src="./img/mashvara_colored_logo.png" 
+                         alt="Mashvara Logo" 
+                         class="h-28 md:h-36 w-auto -ml-3 object-contain transition-transform duration-300 group-hover:scale-105">
+                </a>
+
+                <div class="hidden md:flex items-center gap-10 text-sm font-medium text-navy-300">
+                    <a href="#features" class="nav-link hover:text-brand-500 transition-colors duration-200">Возможности</a>
+                    <a href="#how-it-works" class="nav-link hover:text-brand-500 transition-colors duration-200">Как это работает</a>
+                    <a href="#use-cases" class="nav-link hover:text-brand-500 transition-colors duration-200">Бизнесу</a>
+                    <a href="#testimonials" class="nav-link hover:text-brand-500 transition-colors duration-200">Отзывы</a>
+                    <a href="#contact" class="nav-link hover:text-brand-500 transition-colors duration-200">Связаться</a>
                 </div>
 
-                <div class="hidden md:flex space-x-12 text-sm font-medium text-gray-600">
-                    <a href="#features" class="hover:text-black transition">Возможности</a>
-                    <a href="#how-it-works" class="hover:text-black transition">Как это работает</a>
-                    <a href="#use-cases" class="hover:text-black transition">Бизнесу</a>
-                    <a href="#testimonials" class="hover:text-black transition">Отзывы</a>
-                    <a href="#contact" class="hover:text-black transition">Связаться</a>
-                </div>
-
-                <div class="flex items-center"> 
-                    <a href="#download" class="bg-[#0a0f1a] text-white px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg">
-                        Скачать приложение
-                    </a>
-                </div>
+                <a href="#download" 
+                   class="btn-shine bg-brand-500 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-600 transition-all duration-200 shadow-sm hover:shadow-md">
+                    Скачать
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="max-w-2xl">
-                    <h1 class="text-4xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-gradient-primary">
-                        Развивайте бизнес <br>
-                        с помощью умной <span class="text-gray-500">аналитики рынка</span>
+    <!-- HERO -->
+    <section class="pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden relative">
+        <div class="hero-blob hero-blob--1 absolute top-20 right-0 w-[600px] h-[600px] bg-brand-100/40 rounded-full blur-[120px] -z-10"></div>
+        <div class="hero-blob hero-blob--2 absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-100/30 rounded-full blur-[100px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="max-w-xl">
+                    <div class="hero-anim hero-anim-d1 inline-flex items-center gap-2 bg-brand-50 text-brand-600 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 border border-brand-100">
+                        <span class="w-1.5 h-1.5 bg-accent-400 rounded-full"></span>
+                        Платформа для маркетинговых исследований
+                    </div>
+
+                    <h1 class="hero-anim hero-anim-d2 text-4xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] mb-6 text-navy-500">
+                        Развивайте бизнес<br>
+                        с помощью <span class="text-gradient-brand">умной аналитики</span>
                     </h1>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+
+                    <p class="hero-anim hero-anim-d3 text-lg text-navy-200 mb-10 leading-relaxed max-w-md">
                         Проводите маркетинговые исследования и получайте ценные инсайты для роста вашей компании. Быстро, точно и без лишних усилий.
                     </p>
-                   <div class="flex flex-col sm:flex-row gap-4">
-                     <button class="flex items-center justify-center bg-dark text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                        <i class="ph ph-apple-logo text-xl mr-2"></i> App Store
-                    </button>
-    
-                    <button class="flex items-center justify-center bg-white text-dark border border-gray-200 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition shadow-sm transform hover:-translate-y-1">
-                        <i class="ph ph-google-play-logo text-xl mr-2"></i> Google Play
-                    </button>
+
+                    <div class="hero-anim hero-anim-d4 flex flex-col sm:flex-row gap-3">
+                                <a href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer"
+                                    class="store-btn-primary btn-shine">
+                            <i class="ph ph-apple-logo text-xl" aria-hidden="true"></i>
+                            <span>App Store</span>
+                        </a>
+                                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"
+                                    class="store-btn-outline btn-shine">
+                            <i class="ph ph-google-play-logo text-xl" aria-hidden="true"></i>
+                            <span>Google Play</span>
+                        </a>
                     </div>
                 </div>
-                <div class="relative z-10 lg:pl-10">
+
+                <div class="hero-anim hero-anim-d5 relative z-10 lg:pl-8">
                     <img src="img/appInterface3.png" 
-                        alt="App Interface" 
-                        class="w-full h-auto drop-shadow-2xl rounded-3xl floating-animation">  
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100 rounded-full blur-3xl opacity-30 -z-10"></div>
+                         alt="Интерфейс приложения Mashvara" 
+                         class="w-full max-w-md mx-auto h-auto drop-shadow-2xl rounded-3xl floating-animation" 
+                         fetchpriority="high" decoding="async">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-brand-200/20 rounded-full blur-3xl -z-10"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-20 bg-white">
+    <!-- FEATURES -->
+    <section id="features" class="py-24 bg-navy-50/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">Маркетинговые исследования без усилий</h2>
-                <p class="text-gray-500 text-lg">Выбирайте целевую аудиторию, создавайте опросы и собирайте данные в реальном времени.</p>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <p class="text-brand-500 text-sm font-semibold tracking-wide uppercase mb-3">Возможности</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-500 mb-4">Маркетинговые исследования<br class="hidden sm:block"> без усилий</h2>
+                <p class="text-navy-200 text-lg">Выбирайте целевую аудиторию, создавайте опросы и собирайте данные в реальном времени.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-soft transition duration-300 group">
-                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 text-2xl group-hover:scale-110 transition">
-                        <i class="ph ph-target text-3xl text-gray-800"></i>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="feature-card group">
+                    <div class="feature-icon">
+                        <i class="ph-duotone ph-target text-2xl text-brand-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Таргетированные опросы</h3>
-                    <p class="text-gray-500 leading-relaxed">Создавайте и рассылайте анкеты именно вашей идеальной аудитории с точными фильтрами.</p>
+                    <h3 class="text-lg font-bold text-navy-500 mb-2">Таргетированные опросы</h3>
+                    <p class="text-navy-200 text-sm leading-relaxed">Создавайте и рассылайте анкеты именно вашей идеальной аудитории с точными фильтрами.</p>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-soft transition duration-300 group">
-                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 text-2xl group-hover:scale-110 transition">
-                        <i class="ph ph-chart-line-up text-3xl text-gray-800"></i>
+                <div class="feature-card group">
+                    <div class="feature-icon">
+                        <i class="ph-duotone ph-chart-line-up text-2xl text-brand-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Аналитика в реальном времени</h3>
-                    <p class="text-gray-500 leading-relaxed">Отслеживайте и анализируйте ответы по мере их поступления на удобных дашбордах.</p>
+                    <h3 class="text-lg font-bold text-navy-500 mb-2">Аналитика в реальном времени</h3>
+                    <p class="text-navy-200 text-sm leading-relaxed">Отслеживайте и анализируйте ответы по мере их поступления на удобных дашбордах.</p>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-soft transition duration-300 group">
-                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 text-2xl group-hover:scale-110 transition">
-                        <i class="ph ph-currency-circle-dollar text-3xl text-gray-800"></i>
+                <div class="feature-card group">
+                    <div class="feature-icon">
+                        <i class="ph-duotone ph-currency-circle-dollar text-2xl text-brand-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Вознаграждение за отзывы</h3>
-                    <p class="text-gray-500 leading-relaxed">Поощряйте участников за их мнение, чтобы повысить вовлеченность и качество данных.</p>
+                    <h3 class="text-lg font-bold text-navy-500 mb-2">Вознаграждение за отзывы</h3>
+                    <p class="text-navy-200 text-sm leading-relaxed">Поощряйте участников за их мнение, чтобы повысить вовлеченность и качество данных.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="py-20 bg-gray-50">
+    <!-- HOW IT WORKS — Interactive Steps -->
+    <section id="how-it-works" class="py-24 lg:py-32 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="relative order-2 lg:order-1">
-                     <img src="img/analytics_dashboard2.png" 
-                          alt="Analytics Dashboard" 
-                          class="rounded-3xl shadow-2xl rotate-1">
+
+            <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+                <p class="text-brand-500 text-sm font-semibold tracking-wide uppercase mb-3">Процесс</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-500 mb-4">Запуск исследования<br class="hidden sm:block">в три простых шага</h2>
+                <p class="text-navy-200 text-lg">Нажмите на шаг, чтобы увидеть, как это выглядит в приложении</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Phone Showcase (left) -->
+                <div class="relative order-2 lg:order-1 flex items-center justify-center">
+                    <div class="steps-phone-frame relative w-full max-w-lg flex items-center justify-center">
+                        <div class="steps-viewport">
+                           <img src="img/create.png"
+                               alt="Создание опроса в Mashvara"
+                               data-step="0"
+                               class="steps-img steps-img--active"
+                               loading="lazy" decoding="async">
+                           <img src="img/select.png"
+                               alt="Выбор аудитории в Mashvara"
+                               data-step="1"
+                               class="steps-img"
+                               loading="lazy" decoding="async">
+                           <img src="img/result.jpg"
+                               alt="Результаты исследования в Mashvara"
+                               data-step="2"
+                               class="steps-img"
+                               loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                
+
+                <!-- Steps (right) -->
                 <div class="order-1 lg:order-2">
-                    <h2 class="text-3xl font-bold text-dark mb-8">Запуск исследования <br>в три простых шага</h2>
-                    
-                    <div class="space-y-8">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-dark text-white flex items-center justify-center font-bold">1</div>
-                            <div>
-                                <h4 class="text-xl font-semibold mb-2">Создайте опрос</h4>
-                                <p class="text-gray-500">Используйте наш конструктор или готовые шаблоны под ваши задачи.</p>
+                    <div class="space-y-2" id="steps-list" aria-label="Шаги процесса">
+                        <button type="button" class="step-item step-item--active group" data-step="0" aria-label="Шаг 1: Создайте опрос">
+                            <div class="step-item-indicator">
+                                <span class="step-item-number">1</span>
+                                <div class="step-item-line"></div>
                             </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-gray-200 text-dark flex items-center justify-center font-bold">2</div>
-                            <div>
-                                <h4 class="text-xl font-semibold mb-2">Выберите аудиторию</h4>
-                                <p class="text-gray-500">Настройте фильтры по возрасту, геолокации и интересам за пару кликов.</p>
+                            <div class="step-item-content">
+                                <h4 class="text-lg font-bold text-navy-500 mb-1 group-hover:text-brand-500 transition-colors">Создайте опрос</h4>
+                                <p class="text-navy-200 text-sm leading-relaxed">Конструктор, шаблоны и AI-подсказки — быстро и без лишнего.</p>
                             </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-gray-200 text-dark flex items-center justify-center font-bold">3</div>
-                            <div>
-                                <h4 class="text-xl font-semibold mb-2">Получите отчет</h4>
-                                <p class="text-gray-500">Готовая визуализация данных и рекомендации ИИ появятся в вашем кабинете.</p>
+                        </button>
+
+                        <button type="button" class="step-item group" data-step="1" aria-label="Шаг 2: Выберите аудиторию">
+                            <div class="step-item-indicator">
+                                <span class="step-item-number">2</span>
+                                <div class="step-item-line"></div>
                             </div>
-                        </div>
+                            <div class="step-item-content">
+                                <h4 class="text-lg font-bold text-navy-500 mb-1 group-hover:text-brand-500 transition-colors">Выберите аудиторию</h4>
+                                <p class="text-navy-200 text-sm leading-relaxed">Фильтры по регионам и профилю. Прозрачная статистика по базе.</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="step-item group" data-step="2" aria-label="Шаг 3: Получите отчёт">
+                            <div class="step-item-indicator">
+                                <span class="step-item-number">3</span>
+                                <div class="step-item-line"></div>
+                            </div>
+                            <div class="step-item-content">
+                                <h4 class="text-lg font-bold text-navy-500 mb-1 group-hover:text-brand-500 transition-colors">Получите отчёт</h4>
+                                <p class="text-navy-200 text-sm leading-relaxed">Визуализация, выводы и рекомендации — для быстрых решений.</p>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="use-cases" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Кому полезен Mashvara?</h2>
-            <p class="text-xl text-gray-500 max-w-2xl mx-auto">Инструменты для тех, кто ценит точность данных и скорость принятия решений.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-[#0a0f1a] p-8 rounded-[2rem] flex flex-col justify-between hover:scale-[1.02] transition duration-300 shadow-xl">
-                <div>
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8">
-                        <i class="ph ph-megaphone text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Стартапам</h3>
-                    <p class="text-gray-400 leading-relaxed">Тестируйте гипотезы, рекламные креативы и новые продукты на целевой аудитории еще до запуска.</p>
-                </div>
-            </div>
-
-            <div class="bg-[#0a0f1a] p-8 rounded-[2rem] flex flex-col justify-between hover:scale-[1.02] transition duration-300 shadow-xl">
-                <div>
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8">
-                        <i class="ph ph-users-three text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Топ-менеджерам</h3>
-                    <p class="text-gray-500 leading-relaxed text-gray-400">Проводите честные опросы вовлеченности и собирайте обратную связь от сотрудников анонимно.</p>
-                </div>
-            </div>
-
-            <div class="bg-[#0a0f1a] p-8 rounded-[2rem] flex flex-col justify-between hover:scale-[1.02] transition duration-300 shadow-xl">
-                <div>
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8">
-                        <i class="ph ph-lightbulb text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Маркетологам</h3>
-                    <p class="text-gray-500 leading-relaxed text-gray-400">Проверяйте спрос на MVP и находите точки роста вашего продукта, основываясь на реальных болях рынка.</p>
-                </div>
-            </div>
-
-            <div class="bg-[#0a0f1a] p-8 rounded-[2rem] flex flex-col justify-between hover:scale-[1.02] transition duration-300 shadow-xl">
-                <div>
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8">
-                        <i class="ph ph-microscope text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Аналитикам</h3>
-                    <p class="text-gray-500 leading-relaxed text-gray-400">Собирайте качественные и количественные данные для глубокого анализа рыночных трендов и потребителей.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
-
-    <section id="testimonials" class="py-20 bg-white">
+    <!-- USE CASES -->
+    <section id="use-cases" class="py-24 bg-navy-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-dark mb-12 text-center">Нам доверяют тысячи бизнесов</h2>
+            <div class="text-center mb-16">
+                <p class="text-brand-400 text-sm font-semibold tracking-wide uppercase mb-3">Для кого</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Кому полезен Mashvara?</h2>
+                <p class="text-navy-200 text-lg max-w-2xl mx-auto">Инструменты для тех, кто ценит точность данных и скорость принятия решений.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="ph-duotone ph-megaphone text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Стартапам</h3>
+                    <p class="text-navy-100 text-sm leading-relaxed">Тестируйте гипотезы, рекламные креативы и новые продукты на целевой аудитории ещё до запуска.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="ph-duotone ph-users-three text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Топ-менеджерам</h3>
+                    <p class="text-navy-100 text-sm leading-relaxed">Проводите честные опросы вовлечённости и собирайте обратную связь от сотрудников анонимно.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="ph-duotone ph-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Маркетологам</h3>
+                    <p class="text-navy-100 text-sm leading-relaxed">Проверяйте спрос на MVP и находите точки роста, основываясь на реальных болях рынка.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="ph-duotone ph-microscope text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Аналитикам</h3>
+                    <p class="text-navy-100 text-sm leading-relaxed">Собирайте качественные и количественные данные для глубокого анализа рыночных трендов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-brand-500 text-sm font-semibold tracking-wide uppercase mb-3">Отзывы</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-500 mb-4">Нам доверяют тысячи бизнесов</h2>
+            </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">"Mashvara полностью изменила наш подход к запуску продуктов. Теперь мы точно знаем, чего хочет рынок."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="./img/2.jpeg" alt="User" class="w-10 h-10 rounded-full">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="testimonial-card">
+                    <div class="flex gap-0.5 text-accent-400 mb-5 text-sm">★★★★★</div>
+                    <p class="text-navy-300 mb-8 text-sm leading-relaxed flex-1">"Mashvara полностью изменила наш подход к запуску продуктов. Теперь мы точно знаем, чего хочет рынок."</p>
+                    <div class="flex items-center gap-3 pt-5 border-t border-navy-50">
+                        <img src="./img/2.jpeg" alt="Айбек С." class="w-10 h-10 rounded-full object-cover ring-2 ring-navy-50" loading="lazy" decoding="async">
                         <div>
-                            <p class="font-bold text-sm">Айбек С.</p>
-                            <p class="text-xs text-gray-400">Маркетинг директор</p>
+                            <p class="font-semibold text-sm text-navy-500">Айбек С.</p>
+                            <p class="text-xs text-navy-200">Маркетинг директор</p>
                         </div>
                     </div>
                 </div>
-                <div class="border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">"Интуитивный интерфейс и невероятно быстрая аналитика. Экономит нам часы работы каждую неделю."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="./img/3.jpeg" alt="User" class="w-10 h-10 rounded-full">
+
+                <div class="testimonial-card">
+                    <div class="flex gap-0.5 text-accent-400 mb-5 text-sm">★★★★★</div>
+                    <p class="text-navy-300 mb-8 text-sm leading-relaxed flex-1">"Интуитивный интерфейс и невероятно быстрая аналитика. Экономит нам часы работы каждую неделю."</p>
+                    <div class="flex items-center gap-3 pt-5 border-t border-navy-50">
+                        <img src="./img/3.jpeg" alt="Нурзат Т." class="w-10 h-10 rounded-full object-cover ring-2 ring-navy-50" loading="lazy" decoding="async">
                         <div>
-                            <p class="font-bold text-sm">Нурзат Т.</p>
-                            <p class="text-xs text-gray-400">CEO Startup</p>
+                            <p class="font-semibold text-sm text-navy-500">Нурзат Т.</p>
+                            <p class="text-xs text-navy-200">CEO Startup</p>
                         </div>
                     </div>
                 </div>
-                <div class="border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">"Лучшее решение для малого бизнеса. Глубокие инсайты по доступной цене. Рекомендую!"</p>
-                    <div class="flex items-center gap-3">
-                        <img src="./img/1.jpeg" alt="User" class="w-10 h-10 rounded-full">
+
+                <div class="testimonial-card">
+                    <div class="flex gap-0.5 text-accent-400 mb-5 text-sm">★★★★★</div>
+                    <p class="text-navy-300 mb-8 text-sm leading-relaxed flex-1">"Лучшее решение для малого бизнеса. Глубокие инсайты по доступной цене. Рекомендую!"</p>
+                    <div class="flex items-center gap-3 pt-5 border-t border-navy-50">
+                        <img src="./img/1.jpeg" alt="Эрмек Ж." class="w-10 h-10 rounded-full object-cover ring-2 ring-navy-50" loading="lazy" decoding="async">
                         <div>
-                            <p class="font-bold text-sm">Эрмек Ж.</p>
-                            <p class="text-xs text-gray-400">Владелец сети кафе</p>
+                            <p class="font-semibold text-sm text-navy-500">Эрмек Ж.</p>
+                            <p class="text-xs text-navy-200">Владелец сети кафе</p>
                         </div>
                     </div>
                 </div>
@@ -281,117 +362,125 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
-            
-            <div>
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Свяжитесь с нами</h2>
-                <p class="text-xl text-gray-500 mb-10 leading-relaxed">
-                    Есть вопросы по внедрению Mashvara в ваш бизнес? Наши специалисты помогут настроить ваш первый опрос.
-                </p>
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-navy-50/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
                 
-                <div class="space-y-8">
-                    <div class="flex items-center gap-6">
-                        <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600">
-                            <i class="ph ph-phone text-2xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-400">Телефон</p>
-                            <a href="tel:+996505366555" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition">+996 (700) 666 005</a>
-                        </div>
-                    </div>
+                <div>
+                    <p class="text-brand-500 text-sm font-semibold tracking-wide uppercase mb-3">Контакты</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-500 mb-6">Свяжитесь с нами</h2>
+                    <p class="text-lg text-navy-200 mb-12 leading-relaxed max-w-md">
+                        Есть вопросы по внедрению Mashvara в ваш бизнес? Наши специалисты помогут настроить ваш первый опрос.
+                    </p>
                     
-                    <div class="flex items-center gap-6">
-                        <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600">
-                            <i class="ph ph-envelope-simple text-2xl"></i>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-5">
+                            <div class="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-500">
+                                <i class="ph-duotone ph-phone text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-navy-200 font-medium uppercase tracking-wide mb-0.5">Телефон</p>
+                                <a href="tel:+996700666005" class="text-base font-semibold text-navy-500 hover:text-brand-500 transition-colors">+996 (700) 666 005</a>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-400">Email</p>
-                            <a href="mailto:hello@mashvara.com" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition">info@electrolab.kg</a>
+                        
+                        <div class="flex items-center gap-5">
+                            <div class="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-500">
+                                <i class="ph-duotone ph-envelope-simple text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-navy-200 font-medium uppercase tracking-wide mb-0.5">Email</p>
+                                <a href="mailto:hello@mashvara.com" class="text-base font-semibold text-navy-500 hover:text-brand-500 transition-colors">hello@mashvara.com</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-white p-8 md:p-10 rounded-2xl shadow-card border border-navy-50/80">
+                    <form id="contact-form" class="space-y-5">
+                        
+                        <div id="form-alert" class="hidden p-4 rounded-xl text-center text-sm font-medium" role="status" aria-live="polite"></div>
+
+                        <div>
+                            <label for="contact-name" class="block text-xs font-semibold text-navy-300 uppercase tracking-wide mb-2">Ваше имя</label>
+                            <input id="contact-name" type="text" name="name" placeholder="Амира Асанова" autocomplete="name" required
+                                class="form-input">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-phone" class="block text-xs font-semibold text-navy-300 uppercase tracking-wide mb-2">Номер телефона</label>
+                            <input id="contact-phone" type="tel" name="phone" placeholder="+996 (555) 00-00-00" autocomplete="tel" inputmode="tel" required
+                                class="form-input">
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="block text-xs font-semibold text-navy-300 uppercase tracking-wide mb-2">Сообщение <span class="text-navy-100 normal-case">(необязательно)</span></label>
+                            <textarea id="contact-message" name="message" rows="4" placeholder="Расскажите о вашем проекте" autocomplete="off"
+                                class="form-input resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn" 
+                                class="w-full bg-brand-500 text-white py-4 rounded-xl font-bold hover:bg-brand-600 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md">
+                            Отправить заявку
+                        </button>
+                        
+                        <p class="text-center text-xs text-navy-200 mt-4">
+                            Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html" class="underline underline-offset-2 hover:text-brand-500 transition-colors">Политикой конфиденциальности</a>.
+                        </p>
+                    </form>
+                </div>
+
             </div>
-
-        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-gray-200/50">
-                <form id="contact-form" class="space-y-5">
-                    
-                    <div id="form-alert" class="hidden p-4 rounded-xl bg-green-100 text-green-700 text-center text-sm font-medium">
-                        Спасибо! Ваша заявка отправлена.
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Ваше имя</label>
-                        <input type="text" name="name" placeholder="Амира Асанова" required
-                            class="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 transition outline-none">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Номер телефона</label>
-                        <input type="tel" name="phone" placeholder="+996 (555) 00-00-00" required
-                            class="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 transition outline-none">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Сообщение (необязательно)</label>
-                        <textarea name="message" rows="4" placeholder="Расскажите о вашем проекте" 
-                            class="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 transition outline-none"></textarea>
-                    </div>
-
-                    <button type="submit" id="submit-btn" class="w-full bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-800 transform active:scale-[0.98] transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-                        Отправить заявку
-                    </button>
-                    
-                    <p class="text-center text-xs text-gray-400 mt-4">
-                        Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности.
-                    </p>
-                </form>
-            </div>
-
         </div>
-    </div>
     </section>
 
-    <script src="js/main.js"></script>
+    <!-- FOOTER / CTA -->
+    <footer id="download" class="bg-navy-500 text-white pt-20 pb-10 relative overflow-hidden">
+        <div class="hero-blob hero-blob--3 absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[150px] -z-0"></div>
 
-
-<footer id="download" class="bg-[#0a0f1a] text-white pt-20 pb-10 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
-            <div class="max-w-lg text-center md:text-left flex flex-col justify-between">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                        Начните получать инсайты уже сегодня
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
+                <div class="max-w-lg text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-5 leading-tight">
+                        Начните получать инсайты<br>уже сегодня
                     </h2>
-                    <p class="text-gray-400 text-lg mb-10">
+                    <p class="text-navy-200 text-lg mb-8 leading-relaxed">
                         Скачайте Mashvara и принимайте обоснованные бизнес-решения на основе реальных данных.
                     </p>
-                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                        <button class="bg-white text-black px-8 py-3 rounded-xl font-bold hover:bg-gray-200 transition">
-                            App Store
-                        </button>
-                        <button class="bg-transparent border border-gray-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-gray-800 transition">
-                            Google Play
-                        </button>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                                <a href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer" 
+                                    class="btn-shine bg-white text-navy-500 px-7 py-3 rounded-xl font-bold hover:bg-brand-50 transition-all duration-200 text-sm">
+                            <i class="ph ph-apple-logo mr-1.5" aria-hidden="true"></i> App Store
+                        </a>
+                                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" 
+                                    class="btn-shine border border-navy-300 text-white px-7 py-3 rounded-xl font-bold hover:bg-navy-400 transition-all duration-200 text-sm">
+                            <i class="ph ph-google-play-logo mr-1.5" aria-hidden="true"></i> Google Play
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <div class="absolute -inset-6 bg-brand-500/15 blur-3xl rounded-full opacity-60"></div>
+                    <div class="relative border border-brand-700/30 rounded-[2rem] p-5 backdrop-blur-sm bg-brand-500/5">
+                        <img src="img/app_footer.png" alt="Mashvara App" 
+                             class="w-56 md:w-64 h-auto floating-animation drop-shadow-[0_0_40px_rgba(14,154,171,0.25)]" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
-            
-            <div class="relative group">
-                <div class="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full opacity-50"></div>
-                <div class="relative border-2 border-blue-400/30 rounded-[2.5rem] p-6 backdrop-blur-sm bg-blue-500/5 shadow-[0_0_50px_rgba(59,130,246,0.15)]">
-                    <img src="img/app_footer.png" alt="Mashvara App" class="w-64 md:w-72 h-auto floating-animation drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-navy-400/30 pt-8">
+                <p class="text-navy-200 text-sm">&copy; 2026 Mashvara. Все права защищены.</p>
+                <a href="privacy-policy.html" class="text-navy-200 text-sm hover:text-white transition-colors">Политика конфиденциальности</a>
             </div>
         </div>
+    </footer>
 
-        <div class="text-gray-600 text-sm text-center md:text-left border-t border-gray-800/50 pt-8">
-            © 2026 Mashvara. Все права защищены.
-        </div>
-    </div>
-</footer>
+    <button id="back-to-top" type="button" class="back-to-top" aria-label="Наверх">
+        <i class="ph ph-arrow-up" aria-hidden="true"></i>
+    </button>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
