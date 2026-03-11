@@ -52,12 +52,19 @@ const alertBox = document.getElementById('form-alert');
 
     const { target, clientX, clientY } = lastEvent;
     const el = target.closest('.spotlight');
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = ((clientX - rect.left) / rect.width) * 100;
-    const y = ((clientY - rect.top) / rect.height) * 100;
-    el.style.setProperty('--x', `${x}%`);
-    el.style.setProperty('--y', `${y}%`);
+    const scope = target.closest('.spotlight-scope');
+
+    const setVars = (node) => {
+      if (!node) return;
+      const rect = node.getBoundingClientRect();
+      const x = ((clientX - rect.left) / rect.width) * 100;
+      const y = ((clientY - rect.top) / rect.height) * 100;
+      node.style.setProperty('--x', `${x}%`);
+      node.style.setProperty('--y', `${y}%`);
+    };
+
+    setVars(el);
+    if (scope && scope !== el) setVars(scope);
   };
 
   const onMove = (e) => {

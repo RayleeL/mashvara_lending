@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    Mashvara — Corporate Design System
-   Brand:   #0E9AAB (teal)
-   Accent:  #E8453C (red)
+    Brand:   #2C73C9 (blue)
+    Accent:  #F23B35 (red)
    Dark:    #0C1B2A (navy)
    ═══════════════════════════════════════════════════════════ */
 
@@ -13,7 +13,7 @@ body {
 }
 
 ::selection {
-    background: rgba(14, 154, 171, 0.15);
+    background: rgba(44, 115, 201, 0.15);
     color: #0C1B2A;
 }
 
@@ -26,7 +26,7 @@ body {
     width: 100%;
     transform: scaleX(0);
     transform-origin: left;
-    background: linear-gradient(90deg, #0E9AAB, #4DCAD8, #E8453C);
+    background: linear-gradient(90deg, #2C73C9, #93C5FD, #F23B35);
     z-index: 1000;
     opacity: 0.9;
 }
@@ -34,15 +34,15 @@ body {
 /* ── Scrollbar ────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #B3E8EE; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #0E9AAB; }
+::-webkit-scrollbar-thumb { background: #DBEAFE; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2C73C9; }
 
 /* ── Glass Nav ────────────────────────────────────────────── */
 .glass-nav {
     background: rgba(255, 255, 255, 0.82);
     backdrop-filter: saturate(180%) blur(16px);
     -webkit-backdrop-filter: saturate(180%) blur(16px);
-    border-bottom: 1px solid rgba(14, 154, 171, 0.08);
+    border-bottom: 1px solid rgba(44, 115, 201, 0.08);
 }
 
 /* Nav link underline */
@@ -57,7 +57,7 @@ body {
     right: 0;
     bottom: -6px;
     height: 2px;
-    background: linear-gradient(90deg, rgba(14,154,171,0.0), rgba(14,154,171,0.9), rgba(232,69,60,0.0));
+    background: linear-gradient(90deg, rgba(44,115,201,0.0), rgba(44,115,201,0.9), rgba(242,59,53,0.0));
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 220ms ease;
@@ -66,7 +66,7 @@ body {
 
 /* ── Gradient Text ────────────────────────────────────────── */
 .text-gradient-brand {
-    background: linear-gradient(135deg, #0E9AAB 0%, #0B7F8D 50%, #09636F 100%);
+    background: linear-gradient(135deg, #2C73C9 0%, #245FA6 50%, #1D4B83 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -81,18 +81,18 @@ body {
     justify-content: center;
     gap: 0.5rem;
     padding: 0.875rem 2rem;
-    background: #0C1B2A;
+    background: #2C73C9;
     color: #fff;
     font-weight: 600;
     font-size: 0.875rem;
     border-radius: 0.75rem;
-    box-shadow: 0 1px 3px rgba(12, 27, 42, 0.12), 0 6px 16px -4px rgba(12, 27, 42, 0.18);
+    box-shadow: 0 1px 3px rgba(44, 115, 201, 0.18), 0 10px 24px -8px rgba(44, 115, 201, 0.28);
     transition: all 0.2s ease;
 }
 .store-btn-primary:hover {
-    background: #1E3A5F;
+    background: #245FA6;
     transform: translateY(-2px);
-    box-shadow: 0 1px 3px rgba(12, 27, 42, 0.12), 0 10px 28px -4px rgba(12, 27, 42, 0.22);
+    box-shadow: 0 1px 3px rgba(44, 115, 201, 0.18), 0 14px 34px -10px rgba(44, 115, 201, 0.34);
 }
 
 .store-btn-outline {
@@ -107,7 +107,7 @@ body {
     color: #0C1B2A;
     font-weight: 600;
     font-size: 0.875rem;
-    border: 1.5px solid #E8EDF3;
+    border: 1.5px solid rgba(44, 115, 201, 0.18);
     border-radius: 0.75rem;
     transition: all 0.2s ease;
 }
@@ -153,19 +153,59 @@ body {
 .spotlight {
     position: relative;
     overflow: hidden;
+    --spotlight-size: 520px;
+    --spotlight-brand: rgba(44,115,201,0.28);
+    --spotlight-accent: rgba(242,59,53,0.14);
 }
 .spotlight::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -28px;
     pointer-events: none;
-    background: radial-gradient(240px circle at var(--x, 50%) var(--y, 50%), rgba(14,154,171,0.14), transparent 60%);
+    background:
+        radial-gradient(var(--spotlight-size) circle at var(--x, 50%) var(--y, 50%), var(--spotlight-brand), transparent 62%),
+        radial-gradient(calc(var(--spotlight-size) * 0.7) circle at var(--x, 50%) var(--y, 50%), var(--spotlight-accent), transparent 72%);
     opacity: 0;
-    transition: opacity 200ms ease;
+    transition: opacity 180ms ease;
 }
 .spotlight:hover::after { opacity: 1; }
-.spotlight--dark::after {
-    background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgba(14,154,171,0.18), transparent 62%);
+.spotlight--dark {
+    --spotlight-size: 560px;
+    --spotlight-brand: rgba(44,115,201,0.34);
+    --spotlight-accent: rgba(242,59,53,0.18);
+}
+
+/* Light background variant (subtle, brand-first) */
+.spotlight--light {
+    --spotlight-size: 720px;
+    --spotlight-brand: rgba(44,115,201,0.16);
+    --spotlight-accent: rgba(242,59,53,0.06);
+}
+
+/* Large hover areas (entire sections) */
+.spotlight-scope {
+    --spotlight-size: 980px;
+}
+
+.spotlight-scope.spotlight--dark {
+    --spotlight-brand: rgba(44,115,201,0.30);
+    --spotlight-accent: rgba(242,59,53,0.16);
+}
+
+.spotlight-scope.spotlight--light {
+    --spotlight-brand: rgba(44,115,201,0.14);
+    --spotlight-accent: rgba(242,59,53,0.05);
+}
+
+/* Stronger glow for full blocks (cards) */
+.feature-card.spotlight:hover,
+.testimonial-card.spotlight:hover {
+    border-color: rgba(44, 115, 201, 0.28);
+    box-shadow: 0 1px 3px rgba(44, 115, 201, 0.10), 0 22px 64px -18px rgba(44, 115, 201, 0.22);
+}
+
+.use-case-card.spotlight:hover {
+    box-shadow: 0 0 0 1px rgba(44, 115, 201, 0.22), 0 22px 70px -22px rgba(44, 115, 201, 0.30);
 }
 
 /* ── Back to top ─────────────────────────────────────────── */
@@ -197,14 +237,14 @@ body {
     pointer-events: auto;
 }
 .back-to-top:hover {
-    border-color: rgba(14, 154, 171, 0.30);
-    color: #0E9AAB;
+    border-color: rgba(44, 115, 201, 0.30);
+    color: #2C73C9;
 }
 .store-btn-outline:hover {
-    border-color: #0E9AAB;
-    color: #0E9AAB;
+    border-color: #2C73C9;
+    color: #2C73C9;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px -4px rgba(14, 154, 171, 0.15);
+    box-shadow: 0 4px 16px -4px rgba(44, 115, 201, 0.15);
 }
 
 /* ── Feature Cards ────────────────────────────────────────── */
@@ -212,19 +252,19 @@ body {
     background: #fff;
     padding: 2rem;
     border-radius: 1rem;
-    border: 1px solid rgba(14, 154, 171, 0.08);
+    border: 1px solid rgba(44, 115, 201, 0.08);
     transition: all 0.3s ease;
 }
 .feature-card:hover {
-    border-color: rgba(14, 154, 171, 0.2);
-    box-shadow: 0 1px 3px rgba(14, 154, 171, 0.08), 0 16px 48px -12px rgba(14, 154, 171, 0.12);
+    border-color: rgba(44, 115, 201, 0.2);
+    box-shadow: 0 1px 3px rgba(44, 115, 201, 0.08), 0 16px 48px -12px rgba(44, 115, 201, 0.12);
     transform: translateY(-4px);
 }
 
 .feature-icon {
     width: 3rem;
     height: 3rem;
-    background: #E6F7F9;
+    background: #EFF6FF;
     border-radius: 0.75rem;
     display: flex;
     align-items: center;
@@ -232,7 +272,7 @@ body {
     margin-bottom: 1.25rem;
     transition: all 0.3s ease;
 }
-.feature-card:hover .feature-icon { background: #0E9AAB; }
+.feature-card:hover .feature-icon { background: #2C73C9; }
 .feature-card:hover .feature-icon i { color: #fff !important; }
 
 /* ── Step Numbers ─────────────────────────────────────────── */
@@ -252,15 +292,15 @@ body {
     transition: all 0.2s ease;
 }
 .step-number.active {
-    background: #0E9AAB;
-    border-color: #0E9AAB;
+    background: #2C73C9;
+    border-color: #2C73C9;
     color: #fff;
-    box-shadow: 0 4px 12px -2px rgba(14, 154, 171, 0.3);
+    box-shadow: 0 8px 18px -6px rgba(44, 115, 201, 0.40);
 }
 
 /* ── Interactive Steps (How It Works) ─────────────────────── */
 .steps-showcase-bg {
-    background: linear-gradient(160deg, #E6F7F9 0%, #f0fafb 40%, #f5eef9 100%);
+    background: linear-gradient(160deg, #EFF6FF 0%, #FEF2F2 55%, #ffffff 100%);
     border: none;
 }
 
@@ -274,7 +314,7 @@ body {
     aspect-ratio: 3 / 4;
     border-radius: 0.9rem;
     overflow: hidden;
-    background: linear-gradient(160deg, #f0fafb 0%, #f5f0fa 50%, #eef5fb 100%);
+    background: linear-gradient(160deg, #EFF6FF 0%, #FEF2F2 55%, #ffffff 100%);
     border: none;
     box-shadow: none;
     transform: translateZ(0);
@@ -335,8 +375,8 @@ body {
 }
 .step-item--active {
     background: #fff;
-    border-color: rgba(12, 27, 42, 0.08);
-    box-shadow: 0 8px 30px -18px rgba(12, 27, 42, 0.28);
+    border-color: rgba(44, 115, 201, 0.18);
+    box-shadow: 0 8px 30px -18px rgba(12, 27, 42, 0.24), 0 12px 34px -22px rgba(44, 115, 201, 0.26);
 }
 .step-item--active:hover {
     background: #fff;
@@ -353,7 +393,7 @@ body {
     transition: background 220ms ease;
 }
 .step-item--active::before {
-    background: linear-gradient(180deg, #0E9AAB, rgba(14, 154, 171, 0.10));
+    background: linear-gradient(180deg, #2C73C9, rgba(44, 115, 201, 0.10));
 }
 
 /* Step indicator — number circle + progress line */
@@ -379,15 +419,15 @@ body {
     transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease;
 }
 .step-item--active .step-item-number {
-    background: #0E9AAB;
+    background: #2C73C9;
     border-color: transparent;
     color: #fff;
-    box-shadow: 0 8px 22px -10px rgba(14, 154, 171, 0.55);
+    box-shadow: 0 8px 22px -10px rgba(44, 115, 201, 0.55);
 }
 .step-item:hover:not(.step-item--active) .step-item-number {
-    border-color: #0E9AAB;
-    color: #0E9AAB;
-    background: #E6F7F9;
+    border-color: #2C73C9;
+    color: #2C73C9;
+    background: #EFF6FF;
 }
 
 .step-item-line {
@@ -399,7 +439,7 @@ body {
     transition: background 0.35s ease;
 }
 .step-item--active .step-item-line {
-    background: linear-gradient(180deg, #0E9AAB, transparent);
+    background: linear-gradient(180deg, #2C73C9, transparent);
 }
 .step-item:last-child .step-item-line { display: none; }
 
@@ -411,7 +451,7 @@ body {
 
 .step-item:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(14, 154, 171, 0.18);
+    box-shadow: 0 0 0 4px rgba(44, 115, 201, 0.20);
 }
 
 /* ── Use Case Cards (dark section) ────────────────────────── */
@@ -423,21 +463,21 @@ body {
     transition: all 0.3s ease;
 }
 .use-case-card:hover {
-    background: rgba(14, 154, 171, 0.08);
-    border-color: rgba(14, 154, 171, 0.25);
+    background: rgba(44, 115, 201, 0.12);
+    border-color: rgba(44, 115, 201, 0.25);
     transform: translateY(-4px);
 }
 
 .use-case-icon {
     width: 2.75rem;
     height: 2.75rem;
-    background: rgba(14, 154, 171, 0.15);
+    background: rgba(44, 115, 201, 0.20);
     border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    color: #1ABCCD;
+    color: #60A5FA;
 }
 
 /* ── Testimonial Cards ────────────────────────────────────── */
@@ -451,8 +491,8 @@ body {
     transition: all 0.3s ease;
 }
 .testimonial-card:hover {
-    border-color: rgba(14, 154, 171, 0.2);
-    box-shadow: 0 8px 32px -8px rgba(14, 154, 171, 0.1);
+    border-color: rgba(44, 115, 201, 0.2);
+    box-shadow: 0 8px 34px -10px rgba(44, 115, 201, 0.16);
 }
 
 /* ── Form Inputs ──────────────────────────────────────────── */
@@ -470,8 +510,8 @@ body {
 .form-input::placeholder { color: #8BA1BD; }
 .form-input:focus {
     background: #fff;
-    border-color: #0E9AAB;
-    box-shadow: 0 0 0 3px rgba(14, 154, 171, 0.1);
+    border-color: #2C73C9;
+    box-shadow: 0 0 0 4px rgba(44, 115, 201, 0.14);
 }
 
 /* ── Floating Animation ───────────────────────────────────── */
@@ -486,7 +526,7 @@ body {
 
 /* ── Footer glow ──────────────────────────────────────────── */
 #download .relative.border:hover {
-    border-color: rgba(14, 154, 171, 0.4);
+    border-color: rgba(44, 115, 201, 0.4);
 }
 
 /* ── Glass Nav — scroll state ─────────────────────────────── */
