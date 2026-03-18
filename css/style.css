@@ -198,14 +198,35 @@ body {
 }
 
 /* Stronger glow for full blocks (cards) */
-.feature-card.spotlight:hover,
-.testimonial-card.spotlight:hover {
-    border-color: rgba(44, 115, 201, 0.28);
-    box-shadow: 0 1px 3px rgba(44, 115, 201, 0.10), 0 22px 64px -18px rgba(44, 115, 201, 0.22);
+.feature-card.spotlight {
+    --spotlight-size: 520px;
+    --spotlight-brand: rgba(242, 59, 53, 0.14);
+    --spotlight-accent: rgba(242, 59, 53, 0.06);
+}
+.feature-card.spotlight:hover {
+    --spotlight-brand: rgba(242, 59, 53, 0.18);
+    --spotlight-accent: rgba(242, 59, 53, 0.08);
+}
+
+.use-case-card.spotlight {
+    --spotlight-size: 700px;
+    --spotlight-brand: rgba(242, 59, 53, 0.12);
+    --spotlight-accent: rgba(242, 59, 53, 0.05);
 }
 
 .use-case-card.spotlight:hover {
-    box-shadow: 0 0 0 1px rgba(44, 115, 201, 0.22), 0 22px 70px -22px rgba(44, 115, 201, 0.30);
+    --spotlight-brand: rgba(242, 59, 53, 0.16);
+    --spotlight-accent: rgba(242, 59, 53, 0.07);
+}
+
+.feature-card.spotlight:hover,
+.testimonial-card.spotlight:hover {
+    border-color: rgba(242, 59, 53, 0.28);
+    box-shadow: 0 1px 3px rgba(12, 27, 42, 0.06), 0 22px 64px -18px rgba(242, 59, 53, 0.22);
+}
+
+.use-case-card.spotlight:hover {
+    box-shadow: 0 0 0 1px rgba(242, 59, 53, 0.16), 0 22px 70px -22px rgba(242, 59, 53, 0.26);
 }
 
 /* ── Back to top ─────────────────────────────────────────── */
@@ -256,8 +277,8 @@ body {
     transition: all 0.3s ease;
 }
 .feature-card:hover {
-    border-color: rgba(44, 115, 201, 0.2);
-    box-shadow: 0 1px 3px rgba(44, 115, 201, 0.08), 0 16px 48px -12px rgba(44, 115, 201, 0.12);
+    border-color: rgba(242, 59, 53, 0.22);
+    box-shadow: 0 1px 3px rgba(12, 27, 42, 0.06), 0 18px 52px -16px rgba(242, 59, 53, 0.18);
     transform: translateY(-4px);
 }
 
@@ -464,8 +485,9 @@ body {
     transition: all 0.3s ease;
 }
 .use-case-card:hover {
-    background: rgba(44, 115, 201, 0.12);
-    border-color: rgba(44, 115, 201, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(242, 59, 53, 0.22);
+    box-shadow: 0 0 0 1px rgba(242, 59, 53, 0.12), 0 22px 70px -28px rgba(242, 59, 53, 0.22);
     transform: translateY(-4px);
 }
 
