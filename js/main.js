@@ -247,7 +247,8 @@ const alertBox = document.getElementById('form-alert');
 })();
 
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwvKKR6TOkOARb1SPmFBOc9ymzIHgLoKPxmASzAkonEYuoCMzGfnmvpgu24lWJW6LV/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwv-mHv6r1HL1iv8oeoau7aXO2YT6n9ysuIyWq2OsZgrCYRXfZ60n3a9QXkUmJKrlA/exec';
+
 
 if (!form || !submitBtn || !alertBox) {
   console.warn('Contact form elements not found.');
