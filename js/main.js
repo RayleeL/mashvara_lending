@@ -247,7 +247,7 @@ const alertBox = document.getElementById('form-alert');
 })();
 
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2IOWQqwtOOt1EOkhrRMryPobX8deF2G_PfCj5UGdiGNsPZihHITaFuLMZLFI4EEAv/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxo1MXhCgy6e-EkWpqlow53Jt41uRktIcb6YPYvqJ9S0sYlfIv6azyjPfLF-7js_APu/exec';
 
 
 if (!form || !submitBtn || !alertBox) {
