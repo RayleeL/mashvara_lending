@@ -552,6 +552,124 @@ body {
     border-color: rgba(44, 115, 201, 0.4);
 }
 
+/* ── Footer directory ─────────────────────────────────────── */
+.footer-directory {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.15fr;
+    gap: 4rem;
+    padding: 3.25rem 0;
+    border-top: 1px solid rgba(139, 161, 189, 0.24);
+}
+
+.footer-directory__title {
+    margin: 0 0 1.35rem;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-directory__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-directory__links li + li {
+    margin-top: 0.8rem;
+}
+
+.footer-directory__links a {
+    display: inline-block;
+    color: #8ba1bd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.footer-directory__links a:hover {
+    color: #fff;
+}
+
+.footer-directory__contacts li:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+}
+
+.footer-directory__contacts span {
+    color: #607894;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid rgba(139, 161, 189, 0.18);
+    color: #8ba1bd;
+    font-size: 0.78rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.footer-bottom__links a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.footer-bottom__links a:hover {
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .footer-directory {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem 2rem;
+        padding: 2.75rem 0;
+    }
+
+    .footer-directory > :last-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom__links {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 460px) {
+    .footer-directory {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-directory > :last-child {
+        grid-column: auto;
+    }
+}
+
 /* ── Glass Nav — scroll state ─────────────────────────────── */
 .glass-nav.is-scrolled {
     background: rgba(255, 255, 255, 0.95);

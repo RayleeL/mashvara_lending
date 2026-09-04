@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a1f11ef-e0bb-447f-9db7-c01fe09fb12c" name="Changes" comment="" />
+    <list default="true" id="4a1f11ef-e0bb-447f-9db7-c01fe09fb12c" name="Changes" comment="feat: added delete account page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,10 +55,33 @@
       <updated>1773389800297</updated>
       <workItem from="1773389801453" duration="1226000" />
       <workItem from="1774086311603" duration="32000" />
+      <workItem from="1788434301398" duration="725000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: added privacy policy">
+      <option name="closed" value="true" />
+      <created>1788434379941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1788434379941</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: added delete account page">
+      <option name="closed" value="true" />
+      <created>1788518156039</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1788518156039</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: added privacy policy" />
+    <MESSAGE value="feat: added delete account page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added delete account page" />
   </component>
 </project>
