@@ -1,0 +1,540 @@
+:root {
+    --delete-amber: #b66c08;
+    --delete-amber-line: #efbd55;
+    --delete-amber-bg: #fff8e7;
+}
+
+.deletion-page {
+    background: #eef3f7;
+}
+
+.deletion-page .policy-nav {
+    position: relative;
+}
+
+.deletion-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: 6px;
+    color: #fff !important;
+    background: var(--policy-blue);
+    box-shadow: 0 8px 20px rgba(44, 115, 201, 0.2);
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.deletion-nav-button:hover {
+    background: var(--policy-blue-dark);
+    transform: translateY(-1px);
+}
+
+.deletion-main {
+    width: min(100%, 1040px);
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 16px 54px rgba(12, 27, 42, 0.08);
+}
+
+.deletion-document {
+    padding: 64px 78px 72px;
+}
+
+.deletion-header {
+    position: relative;
+    padding-left: 76px;
+}
+
+.deletion-title-icon {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    border: 1px solid #cfe0f1;
+    border-radius: 6px;
+    color: var(--policy-blue);
+    background: var(--policy-blue-soft);
+    font-size: 29px;
+}
+
+.deletion-eyebrow,
+.deletion-section-heading p {
+    margin: 0 0 6px;
+    color: var(--policy-blue);
+    font-size: 11px;
+    font-weight: 750;
+    text-transform: uppercase;
+}
+
+.deletion-header h1 {
+    margin: 0;
+    color: var(--policy-ink);
+    font-size: clamp(34px, 5vw, 50px);
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.deletion-lead {
+    max-width: 760px;
+    margin: 18px 0 0;
+    color: #667481;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.deletion-alert,
+.deletion-balance {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 14px;
+    margin: 38px 0 46px;
+    padding: 20px 22px;
+    border: 1px solid var(--delete-amber-line);
+    border-radius: 6px;
+    color: #6c4a0f;
+    background: var(--delete-amber-bg);
+}
+
+.deletion-alert i,
+.deletion-balance i {
+    margin-top: 2px;
+    color: var(--delete-amber);
+    font-size: 23px;
+}
+
+.deletion-alert p,
+.deletion-balance p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.deletion-section {
+    padding: 0 0 46px;
+}
+
+.deletion-section + .deletion-section {
+    padding-top: 46px;
+    border-top: 1px solid var(--policy-line);
+}
+
+.deletion-section--last {
+    padding-bottom: 0;
+}
+
+.deletion-section-heading {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 24px;
+}
+
+.deletion-section-heading > span {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--policy-ink);
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.deletion-section-heading h2 {
+    margin: 0;
+    color: var(--policy-ink);
+    font-size: 25px;
+    line-height: 1.25;
+}
+
+.deletion-methods {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    gap: 16px;
+}
+
+.deletion-method {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px;
+    align-content: start;
+    padding: 24px;
+    border: 1px solid var(--policy-line);
+    border-radius: 6px;
+    background: #fff;
+}
+
+.deletion-method--primary {
+    border-color: #b9d3ed;
+    background: #f9fcff;
+}
+
+.deletion-method__icon {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 5px;
+    color: var(--policy-blue);
+    background: var(--policy-blue-soft);
+    font-size: 22px;
+}
+
+.deletion-method h3 {
+    margin: 2px 0 9px;
+    color: var(--policy-ink);
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.deletion-method p,
+.deletion-method li,
+.deletion-info p,
+.deletion-info dd {
+    color: #667481;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.deletion-method p {
+    margin: 0;
+}
+
+.deletion-method strong,
+.deletion-results strong {
+    color: #263746;
+}
+
+.deletion-method a,
+.deletion-info a {
+    color: var(--policy-blue);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.deletion-method a:hover,
+.deletion-info a:hover {
+    color: var(--policy-blue-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.deletion-method .deletion-list-label {
+    margin-top: 17px;
+    color: #53616e;
+    font-weight: 650;
+}
+
+.deletion-method ul {
+    margin: 9px 0 20px;
+    padding-left: 20px;
+}
+
+.deletion-method li {
+    margin: 6px 0;
+    padding-left: 3px;
+}
+
+.deletion-method li::marker {
+    color: var(--policy-blue);
+}
+
+.deletion-email-button {
+    display: inline-flex;
+    max-width: 100%;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 17px;
+    border-radius: 6px;
+    color: #fff !important;
+    background: var(--policy-blue);
+    box-shadow: 0 8px 20px rgba(44, 115, 201, 0.2);
+    font-size: 13px;
+    text-align: center;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.deletion-email-button:hover {
+    background: var(--policy-blue-dark);
+    text-decoration: none !important;
+    transform: translateY(-1px);
+}
+
+.deletion-email-button i {
+    flex: 0 0 auto;
+    font-size: 19px;
+}
+
+.deletion-verification {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 14px 0 0;
+    color: #667481;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.deletion-verification i {
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: var(--policy-blue);
+    font-size: 17px;
+}
+
+.deletion-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.deletion-results li {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--policy-line);
+}
+
+.deletion-results i {
+    margin-top: 2px;
+    color: var(--policy-blue);
+    font-size: 24px;
+}
+
+.deletion-results p {
+    margin: 0;
+    color: #667481;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.deletion-balance {
+    margin: 0 0 46px;
+}
+
+.deletion-info {
+    padding: 24px 26px;
+    border: 1px solid var(--policy-line);
+    border-top: 3px solid var(--policy-red);
+    border-radius: 6px;
+    background: #f9fbfd;
+}
+
+.deletion-info > p {
+    margin: 0 0 22px;
+}
+
+.deletion-info dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid var(--policy-line);
+}
+
+.deletion-info dl > div {
+    min-width: 0;
+    padding: 17px 18px 0 0;
+}
+
+.deletion-info dt {
+    margin-bottom: 5px;
+    color: #7a8793;
+    font-size: 10px;
+    font-weight: 750;
+    text-transform: uppercase;
+}
+
+.deletion-info dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.deletion-footer {
+    display: flex;
+    width: min(100% - 40px, 1040px);
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px 0 42px;
+    color: #7a8793;
+    font-size: 12px;
+}
+
+.deletion-footer p {
+    margin: 0;
+}
+
+.deletion-footer a {
+    color: var(--policy-blue-dark);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.deletion-footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 840px) {
+    .deletion-document {
+        padding: 52px 40px 60px;
+    }
+
+    .deletion-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .deletion-results {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .deletion-page .policy-back span {
+        display: none;
+    }
+
+    .deletion-page .policy-back {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border: 1px solid var(--policy-line);
+        border-radius: 5px;
+        font-size: 18px;
+    }
+
+    .deletion-nav-button {
+        padding: 0 13px;
+    }
+
+    .deletion-main {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .deletion-document {
+        padding: 42px 20px 50px;
+    }
+
+    .deletion-header {
+        padding-left: 0;
+    }
+
+    .deletion-title-icon {
+        position: static;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 18px;
+        font-size: 25px;
+    }
+
+    .deletion-header h1 {
+        font-size: 34px;
+    }
+
+    .deletion-lead {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .deletion-alert,
+    .deletion-balance {
+        margin-top: 30px;
+        padding: 17px;
+    }
+
+    .deletion-section {
+        padding-bottom: 36px;
+    }
+
+    .deletion-section + .deletion-section {
+        padding-top: 36px;
+    }
+
+    .deletion-section-heading {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .deletion-section-heading > span {
+        width: 32px;
+        height: 32px;
+        font-size: 10px;
+    }
+
+    .deletion-section-heading h2 {
+        font-size: 21px;
+    }
+
+    .deletion-method {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .deletion-email-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .deletion-info {
+        padding: 21px 19px;
+    }
+
+    .deletion-info dl {
+        grid-template-columns: 1fr;
+    }
+
+    .deletion-footer {
+        display: block;
+        width: calc(100% - 40px);
+        text-align: center;
+    }
+
+    .deletion-footer a {
+        display: inline-block;
+        margin-top: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .deletion-nav-button,
+    .deletion-email-button {
+        transition: none;
+    }
+}
+
+@media print {
+    .deletion-page {
+        background: #fff;
+    }
+
+    .deletion-main {
+        box-shadow: none;
+    }
+
+    .deletion-document {
+        padding: 0;
+    }
+
+    .deletion-email-button {
+        border: 1px solid #333;
+        color: #000 !important;
+        background: #fff;
+        box-shadow: none;
+    }
+}
